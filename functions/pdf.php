@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const zoomOutButton = document.getElementById('zoom-out');
 
     let scale = 1; // Initial scale value
+    const zoomFactor = 0.1; // Zoom factor increment
 
     const renderPDF = function () {
         pdfViewer.innerHTML = '';
@@ -67,11 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     zoomInButton.addEventListener('click', () => {
-        changeScale(0.1);
+        changeScale(zoomFactor);
     });
 
     zoomOutButton.addEventListener('click', () => {
-        changeScale(-0.1);
+        changeScale(-zoomFactor);
     });
 
     window.addEventListener('resize', renderPDF);
