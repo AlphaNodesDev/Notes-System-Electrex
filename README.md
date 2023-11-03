@@ -1,7 +1,7 @@
 # Notes-System-Electrex
 
 
-
+#MySql database
 ````sql
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
