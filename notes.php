@@ -40,7 +40,7 @@ if ($result_get_notes->num_rows > 0) {
             <td><?php echo $row['faculty']; ?></td>
         </tr>
     </table>
-    <a href="notes/<?php echo $row['file_name']; ?>" class="button">View</a>
+    <a href="./functions/pdf.php?pdf=<?php echo $row['file_name']; ?>" class="button view-pdf" data-file="<?php echo $row['file_name']; ?>">View</a>
 </div>
 <?php
     }
@@ -54,4 +54,7 @@ $conn->close();
         }
 ?>
     </main>
+
+   
+
 <?php include('./includes/footer.php');?>
