@@ -28,31 +28,76 @@ include('./includes/head.php');
         
         <?php
  
- if (isset($_GET['module-update'])) {
-    $note_id =  $_GET['note-id'];
-    $module_update = $_GET['module-update'];
-    $module_name_update = $_GET['module-name-update'];
-    $subject_name_update = $_GET['subject-update'];
-    $file_name_update = $_GET['file-name'];
+
+if (isset($_POST['module-update'])) {
+    // Retrieve form data
+    $note_id = $_POST['note-id'];
+    $module_update = $_POST['module-update'];
+    $module_name_update = $_POST['module-name-update'];
+    $subject_name_update = $_POST['subject-update'];
+    $file_name_update = $_POST['file-name'];
+
     $note_id = mysqli_real_escape_string($conn, $note_id);
     $module_update = mysqli_real_escape_string($conn, $module_update);
     $module_name_update = mysqli_real_escape_string($conn, $module_name_update);
     $subject_name_update = mysqli_real_escape_string($conn, $subject_name_update);
 
-    // Update query
-    $update_module = "UPDATE notes SET module = '$module_update', module_name = '$module_name_update', subject_name = '$subject_name_update' WHERE id = '$note_id'";
+    if (isset($_FILES['file-update']) && $_FILES['file-update']['error'] === UPLOAD_ERR_OK) {
+        $file_name = $_FILES['file-update']['name'];
+        $temp_name = $_FILES['file-update']['tmp_name'];
+        $file_size = $_FILES['file-update']['size'];
 
-    // Perform the query
-    if (mysqli_query($conn, $update_module)) {
-       
-   header("location: ./edit.php?file_name=$file_name_update&&alert_green=Successfully Updated");
+        if ($file_size > 0) {
+            $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
+            $random_name = uniqid() . '.' . $file_extension;
+
+            $folder = './notes/';
+            $destination = $folder . $random_name;
+
+            if (move_uploaded_file($temp_name, $destination)) {
+                // Get the old file name from the database
+                $get_old_file_name = "SELECT file_name FROM notes WHERE id = '$note_id'";
+                $old_file_result = $conn->query($get_old_file_name);
+
+                if ($old_file_result->num_rows > 0) {
+                    $row = $old_file_result->fetch_assoc();
+                    $old_file_name = $row['file_name'];
+
+                    if ($old_file_name !== '') {
+                        // Delete the old file if it exists
+                        $old_file_path = $folder . $old_file_name;
+                        if (file_exists($old_file_path)) {
+                            unlink($old_file_path);
+                        }
+                    }
+                }
+
+                // Update the record with the new file name
+                $update_module = "UPDATE notes SET module = '$module_update', module_name = '$module_name_update', subject_name = '$subject_name_update', file_name = '$random_name' WHERE id = '$note_id'";
+
+                if (mysqli_query($conn, $update_module)) {
+                    header("location: ./edit.php?file_name=$random_name&&alert_green=Successfully Updated");
+                    exit;
+                } else {
+                    echo "Update failed: Please Contact Developers";
+                }
+            } else {
+                echo "File move failed.";
+            }
+        } else {
+            echo "File size is 0 or the file is invalid.";
+        }
     } else {
-        echo "Update failed: Please Contact Developers" ;
+        echo "No file uploaded or file upload error.";
     }
 }
 
 
-if(isset($_GET['file_name']) && $_GET['file_name'] != NULL){
+
+
+
+
+        if (isset($_GET['file_name']) && $_GET['file_name'] != NULL) {
     $file_name = $_GET['file_name'];
     $get_notes = "SELECT * FROM notes WHERE file_name = '$file_name'";
     $result_get_notes = $conn->query($get_notes);
@@ -77,7 +122,7 @@ if(isset($_GET['file_name']) && $_GET['file_name'] != NULL){
             <h3><?php echo $module; ?></h3>
             <h3><?php echo $module_name; ?></h3>
             <h3><?php echo $subject_name; ?></h3>
-            <form action="" methode="GET">
+            <form action="" method="post" enctype="multipart/form-data">
     <label for="module-update">Module 
     <select class="custom-select" name="module-update" id="module">
     <option value="MODULE 1">MODULE 1</option>
@@ -95,6 +140,7 @@ if(isset($_GET['file_name']) && $_GET['file_name'] != NULL){
     <option value="Life Skill">Life Skill</option>
  </select>
     </label>
+    <label for="file-input">Upload File<input type="file" name="file-update"></label>
     <button class="button" type="submit">Submit</button>  
 
 </form>
