@@ -3,10 +3,7 @@ include('./functions/session_check.php');
 include('./includes/head.php');
 ?>
 <body onload="hide_forms()">
-    <header>
-        <h2><?php echo $_SESSION["username"]; ?></h2>
-        <h1>Notes</h1>
-    </header>
+
     <main>
         <div onclick="open_upload_notes()" class="button1">Upload Notes</div>
         <div onclick="open_edit_semesters()" class="button1">Edit/Add Semester</div>

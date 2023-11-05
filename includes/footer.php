@@ -8,6 +8,7 @@
     <?php } ?>
     <a style="text-decoration: none; color: white;" href="./login-register.php">  <i class="fas fa-sign-in-alt"></i></a>
     </div>
+   
 <script>
    function closeAlert() {
     document.querySelector('.alert-overlay').style.display = 'none';

@@ -4,9 +4,7 @@ include('./includes/head.php');
 ?>
 
 <body>
-    <header>
 
-        <h1>Notes</h1>
         <?php if(isset($_GET['alert_green'])) { ?>
         <div class="alert-overlay">
             <div class="alert-container">
@@ -21,9 +19,7 @@ include('./includes/head.php');
     </div>
        <?php } ?>
        
-        <h2><?php echo $username ?></h2>
 
-    </header>
     <main>
         
         <?php

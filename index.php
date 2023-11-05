@@ -2,11 +2,8 @@
 include('./functions/session_check.php');
 include('./includes/head.php');
 ?>
-<body>
-    <header>
-        <h2><?php if(isset($_SESSION['username'])){ echo $_SESSION["username"];} ?></h2>
-        <h1>Notes</h1>
-    </header>
+
+
     <main>
         <?php
 $get_semesters = "SELECT * FROM semesters";

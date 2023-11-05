@@ -18,6 +18,7 @@ include("./db.php");
         session_start();
         $row = mysqli_fetch_assoc($result);
         $_SESSION["username"] = $row["username"];
+        $_SESSION["profile"] = $row["profile"];
         $_SESSION["email"] = $row["email"];
         $_SESSION["user_type"] = $row["user_type"];
         $_SESSION["id"] = $row["id"];

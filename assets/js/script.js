@@ -30,3 +30,23 @@ function hide_forms(){
     document.getElementById('edit-module').style.display = 'none';
     document.getElementById('edit-subjects').style.display = 'none';
 }
+
+function showImagePopup(element) {
+    document.getElementById('fullImage').src = element.src;
+    document.getElementById('imagePopup').style.display = 'block';
+}
+
+function closeImagePopup() {
+    document.getElementById('imagePopup').style.display = 'none';
+}
+
+function openPopup() {
+    document.getElementById("editPopup").style.display = "block";
+  }
+  
+  function closePopup() {
+    document.getElementById("editPopup").style.display = "none";
+  }
+  
+  document.querySelector(".edit-link").addEventListener("click", openPopup);
+  

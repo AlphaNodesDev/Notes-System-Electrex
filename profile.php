@@ -3,12 +3,7 @@ include('./functions/session_check.php');
 include('./includes/head.php');
 ?>
 
-<body>
-    <header>
-        <h1>Notes</h1>
-        <h2><?php echo $username ?></h2>
 
-    </header>
     <main>
         <?php
  
