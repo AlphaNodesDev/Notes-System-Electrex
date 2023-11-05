@@ -20,5 +20,8 @@
         </div>
   <?php  } ?>
         <h1>Notes</h1>
+        <a style="text-decoration: none; color: red; " href="./about.php">  <i class="fas fa-info"></i></a>
+
     </div>
+    
 </header>
