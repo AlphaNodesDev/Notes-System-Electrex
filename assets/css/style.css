@@ -1,40 +1,98 @@
+/* Styling for the mode switch button */
+.mode-switch-button {
+  appearance: none;
+  background-color: #ddd;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mode-switch-button:focus {
+  outline: none;
+}
+
+/* Styling for the button in light mode */
+#custom-style[href="styles.css"] + .mode-switch-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* Styling for the button in dark mode */
+#custom-style[href="dark-mode.css"] + .mode-switch-button {
+  background-color: #333;
+  color: #ddd;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #eee1e1;
 }
 header {
   background-color: #333;
   color: white;
-  padding: 10px 0;
+  padding: 1px 0;
 }
 
+/* Update the CSS for the topnav */
 .topnav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: left;
-  padding: 0 20px;
-  
+  padding: 10px; /* Increased padding for better spacing */
+
+  /* Updated styling */
+  background-color: #4285f4; /* Modern color scheme */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-.user h1{
-  display: flex;
-  align-items: center;
+
+.topnav h1 {
   margin: 0;
+  font-size: 24px;
+  color: white; /* Improved contrast */
 }
+
+.topnav a {
+  text-decoration: none;
+  color: #FF5A5A; /* Changed the color */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.topnav a:hover {
+  color: #FF1A1A; /* Darker color on hover */
+}
+
 .user h2 {
   display: flex;
   align-items: center;
   margin: 0;
+  font-size: 18px; /* Larger font size for username */
+  color: white; /* Improved contrast */
 }
 
 .user img {
-  width: 50px; 
-  height: 50px; 
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
   border-radius: 50%;
+  border: 2px solid white; /* Added a white border */
 }
+
+/* Styling for the information icon */
+.topnav a i {
+  font-size: 20px;
+  color: white; /* Match with the color scheme */
+}
+
+/* Add hover effects or transitions to the information icon if needed */
+.topnav a i:hover {
+  transform: scale(1.1); /* Example hover effect */
+}
+
 
 main {
     padding: 20px;
@@ -130,19 +188,32 @@ main {
     left: 0;
 }
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333; /* Modern color scheme */
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0; /* Increased padding for better spacing */
+
+  /* Updated border to separate from the content */
+  border-top: 1px solid #444;
 }
+
 .footer i {
-    font-size: 24px;
+  font-size: 24px;
+  margin: 0 5px; /* Spacing between icons */
 }
+
+/* Hover effect for icons in the footer */
+.footer i:hover {
+  transform: scale(1.2); /* Example hover effect */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
 
 .alert-overlay {
     position: fixed;

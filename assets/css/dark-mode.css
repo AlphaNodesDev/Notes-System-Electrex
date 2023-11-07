@@ -1,0 +1,387 @@
+
+  
+  /* Styling for the mode switch button */
+.mode-switch-button {
+    appearance: none;
+    background-color: #000000;
+    border: none;
+    color: wheat;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .mode-switch-button:focus {
+    outline: none;
+  }
+  
+  /* Styling for the button in light mode */
+  #custom-style[href="styles.css"] + .mode-switch-button {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  /* Styling for the button in dark mode */
+  #custom-style[href="dark-mode.css"] + .mode-switch-button {
+    background-color: #333;
+    color: #ddd;
+  }
+  
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+  }
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1px 0;
+  }
+  
+  /* Update the CSS for the topnav */
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Increased padding for better spacing */
+  
+    /* Updated styling */
+    background-color: #424242; /* Modern color scheme */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .topnav h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white; /* Improved contrast */
+  }
+  
+  .topnav a {
+    text-decoration: none;
+    color: #FF5A5A; /* Changed the color */
+    transition: color 0.3s; /* Smooth color transition */
+  }
+  
+  .topnav a:hover {
+    color: #FF1A1A; /* Darker color on hover */
+  }
+  
+  .user h2 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 18px; /* Larger font size for username */
+    color: white; /* Improved contrast */
+  }
+  
+  .user img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid white; /* Added a white border */
+  }
+  
+  /* Styling for the information icon */
+  .topnav a i {
+    font-size: 20px;
+    color: white; /* Match with the color scheme */
+  }
+  
+  /* Add hover effects or transitions to the information icon if needed */
+  .topnav a i:hover {
+    transform: scale(1.1); /* Example hover effect */
+  }
+  
+  
+  main {
+      padding: 20px;
+  }
+  .note {
+      background-color: #2b2424;
+      border: 1px solid #ccc;
+      color: #ccc;
+      margin-bottom: 10px;
+      padding: 10px; /* Reduced padding */
+      border-radius: 12px;
+      position: relative;
+  }
+  
+  .note table {
+      width: 100%;
+  }
+  
+  .note table tr {
+      vertical-align: top;
+  }
+  
+  .note table td:first-child {
+      text-align: right;
+      font-weight: bold;
+      padding-right: 5px; /* Adjusted padding */
+  }
+  
+  .note table td:last-child {
+      padding-left: 5px; /* Adjusted padding */
+  }
+  .note h3 {
+      margin: 0;
+  }
+  .note p {
+      text-align: center;
+      margin: 3px 12px;
+  }
+  .button {
+      background-color: #3995f1d7;
+      border: none;
+      text-decoration: none;
+      color: #f3f3f3;
+      padding: .4rem 1rem .7rem;
+      margin-top: .8rem;
+      border-radius: 5px 5px 5px 0;
+      box-shadow: 0 0 5px #67696b;
+      letter-spacing: .3px;
+      position: relative;
+      cursor: pointer;
+      transition: all .25s ease-out;
+      display: inline-block;
+  }
+  .button:hover {
+      background-color: #35ded0;
+  }
+  .button:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #35ded0;
+      border-radius: 0 0 5px 0px;
+      bottom: 0;
+      left: 0;
+  }
+  .button1 {
+      background-color: red;
+      border: none;
+      text-decoration: none;
+      color: #f3f3f3;
+      padding: .4rem 1rem .7rem;
+      margin-top: .8rem;
+      border-radius: 5px 5px 5px 0;
+      box-shadow: 0 0 5px #67696b;
+      letter-spacing: .3px;
+      position: relative;
+      cursor: pointer;
+      transition: all .25s ease-out;
+      display: inline-block;
+  }
+  .button1:hover {
+      background-color: #35ded0;
+  }
+  .button1:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #35ded0;
+      border-radius: 0 0 5px 0px;
+      bottom: 0;
+      left: 0;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Modern color scheme */
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0; /* Increased padding for better spacing */
+  
+    /* Updated border to separate from the content */
+    border-top: 1px solid #444;
+  }
+  
+  .footer i {
+    font-size: 24px;
+    margin: 0 5px; /* Spacing between icons */
+  }
+  
+  /* Hover effect for icons in the footer */
+  .footer i:hover {
+    transform: scale(1.2); /* Example hover effect */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  
+  .alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px); /* Adjust the blur effect as needed */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+  }
+  
+  .alert-container {
+      background: #fff;
+      color: black;
+      padding: 92px;
+      border-radius: 19px;
+      max-width: 84%;
+      text-align: center;
+  }
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  input {
+      width: 40%;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgb(107, 88, 88);
+  
+  }
+  
+  input:focus {
+      outline: none;
+      border-color: #66afe9;
+      box-shadow: 0 0 5px #66afe9;
+  }
+  
+  .custom-select {
+      position: relative;
+      width: 40%;
+      height: 40px;
+      text-align: center;
+      /* color: red; */
+       background: green; 
+      border-radius: 46px;
+  }
+  
+  .custom-select select {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ebdede;
+      border-radius: 5px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: rgb(107, 88, 88);
+       background-size: 20px;
+  }
+  
+  .custom-select select:focus {
+      outline: none;
+      border-color: #66afe9;
+      box-shadow: 0 0 5px #66afe9;
+  }
+  
+  
+  .profile-card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+    }
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .profile-image img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+    
+    .user-details h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .user-details p {
+      margin: 5px 0;
+      color: #2b2424;
+      font-size: xx-large;
+      font-weight: 900;
+    }
+    
+    .profile-body {
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+      color: #2b2424;
+    }
+    
+    .details-section {
+      margin-bottom: 20px;
+    }
+    
+    .detail-item {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    
+    .detail-label {
+      width: 120px;
+      font-weight: bold;
+    }
+    
+    .edit-link {
+      text-decoration: none;
+      color: #333;
+    }
+    
+  
+    .popup {
+      z-index: 999;
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+    }
+    
+    .popup-content button {
+      margin-top: 10px;
+    }
+    
+    .popup-content .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    

@@ -33,57 +33,50 @@ include('./includes/head.php');
     <div class="profile-card-2">
     <div class="card-body">
             <h3>Electrex App Version History</h3>
-            <table id="releaseTable">
-    <tr>
-        <th>Release</th>
-        <th>Version</th>
-        <th>Fix</th>
-        <th>Apk</th>
-    </tr>
-</table>
+            <div class="table-container">
+    <table id="releaseTable">
+        <tr>
+            <th>Release</th>
+            <th>Version</th>
+            <th>Fix</th>
+            <th>Apk</th>
+        </tr>
+        <!-- Add your table rows dynamically using JavaScript -->
+    </table>
+</div>
+
 
         </div>
     </div>
 </main>
 
 <script>
-fetch('https://api.github.com/repos/AlphaNodesDev/Notes-System-Electrex/releases')
+    fetch('https://api.github.com/repos/AlphaNodesDev/Notes-System-Electrex/releases')
     .then(response => response.json())
     .then(data => {
         const releaseTable = document.getElementById('releaseTable');
-        const latestVersionElement = document.getElementById('version');
 
-        data.forEach((release, index) => {
-            const row = document.createElement('tr');
-            const latestRelease = data[0];
-        if (latestRelease) {
-            latestVersionElement.textContent = ` ${latestRelease.tag_name}`;
-        } else {
-            latestVersionElement.textContent = 'Latest Version: Not Available';
-        }
+        data.forEach(release => {
+            const row = releaseTable.insertRow();
 
-            const releaseCell = document.createElement('td');
-            releaseCell.textContent = `#${release.id}`;
-            row.appendChild(releaseCell);
+            row.insertCell().textContent = `#${release.id}`;
 
-            const versionCell = document.createElement('td');
+            const versionCell = row.insertCell();
             const versionLink = document.createElement('a');
             versionLink.href = release.html_url;
             versionLink.textContent = release.tag_name;
-            versionLink.className = index === 0 ? 'version-latest' : 'version';
+            versionLink.className = 'version';
             versionCell.appendChild(versionLink);
-            row.appendChild(versionCell);
 
-            const fixCell = document.createElement('td');
+            const fixCell = row.insertCell();
             fixCell.textContent = release.body;
-            row.appendChild(fixCell);
 
-            const downloadCell = document.createElement('td');
+            const downloadCell = row.insertCell();
             if (release.assets.length > 0) {
-const downloadButton = document.createElement('button');
-downloadButton.textContent = 'Download';
-downloadButton.className = 'download-button'; 
-downloadButton.onclick = function() {
+                const downloadButton = document.createElement('button');
+                downloadButton.textContent = 'Download';
+                downloadButton.className = 'download-button'; 
+                downloadButton.onclick = function() {
                     const apkDownloadLink = release.assets.find(asset => asset.name.endsWith('.apk'));
                     if (apkDownloadLink) {
                         window.location.href = apkDownloadLink.browser_download_url;
@@ -93,9 +86,6 @@ downloadButton.onclick = function() {
                 };
                 downloadCell.appendChild(downloadButton);
             }
-            row.appendChild(downloadCell);
-
-            releaseTable.appendChild(row);
         });
     })
     .catch(error => {
@@ -105,6 +95,36 @@ downloadButton.onclick = function() {
 
 </script>
 <style>
+        td {
+            max-width: 50px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid black;
+            z-index: 9999;
+        }
+        .table-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+    }
+
+    table {
+        min-width: 100%; /* Ensure the table fills its container width */
+    }
+
+    /* Adjustments for mobile view */
+    @media only screen and (max-width: 600px) {
+        table {
+            width: 1000px; /* Example width for each table row */
+        }
+    }
 .git-hub{
     background-color: #333;
     color: white;
@@ -119,13 +139,12 @@ downloadButton.onclick = function() {
     background-color: #777;
 
 }
-    /* Button style */
 button.download-button {
-    padding: 8px 12px;
+    padding: 13px 6px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -133,7 +152,6 @@ button.download-button {
     font-size: 14px;
     transition: background-color 0.3s;
 }
-
 /* Button hover effect */
 button.download-button:hover {
     background-color: #45a049;
@@ -154,12 +172,13 @@ table {
             width: 100%;
         }
         th, td {
-            padding: 4px;
+            padding: 1px;
             text-align: left;
         }
         th {
             background-color: #f2f2f2;
             color: black;
+     
         }
  /* Basic card layout */
 .profile-card {

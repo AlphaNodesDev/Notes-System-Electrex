@@ -17,5 +17,6 @@
 
 </script>
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/mode_switch.js"></script>
     </body>
 </html>
