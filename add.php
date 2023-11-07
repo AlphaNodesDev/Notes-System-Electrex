@@ -11,7 +11,7 @@ include('./includes/head.php');
         <div onclick="open_edit_subjects()"class="button1">Edit/Add Subjects</div>
 <!--------------------------------------Upload notes Section ------------------------------------->
       <div class="note" id="upload-notes">
-      <form>
+      <form methode="post" action="./functions/upload-notes.php">
         <h1>Upload Notes</h1>
         <label for="module">Module Name</label>
       <input name="module"></input>
@@ -20,6 +20,12 @@ include('./includes/head.php');
                     <select name="module-update" id="module">
                        
                         <option value="MODULE 1">MODULE 1</option>
+                        <option value="MODULE 2">MODULE 2</option>
+                        <option value="MODULE 3">MODULE 3</option>
+                        <option value="MODULE 4">MODULE 4</option>
+                        <option value="MODULE 5">MODULE 5</option>
+                        <option value="MODULE 6">MODULE 6</option>
+
                     </select>
                 </div>
               </label>
@@ -51,6 +57,9 @@ include('./includes/head.php');
                     </select>
                 </div>
               </label>
+              <label for="upload-file">Uplad PDF File
+              <input type="file" name="upload-file" id=""></label>
+              <button type="submit" class="button1" >Submit</button>
     </form>
     </div>
 <!--------------------------------------Upload notes Section END ------------------------------------->

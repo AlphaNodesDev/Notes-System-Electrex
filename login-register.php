@@ -4,9 +4,7 @@ include('./functions/session_check.php');
 include('./includes/head.php');
 ?>
 <body>
-    <header>
-        <h1>Notes</h1>
-    </header>
+
     <main>
       <div class="note">
       <form action="./functions/login_process.php" methode="GET">

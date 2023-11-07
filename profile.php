@@ -62,19 +62,23 @@ $conn->close();
 <div class="popup" id="editPopup">
   <div class="popup-content">
     <span class="close" onclick="closePopup()">&times;</span>
-    <!-- Form to edit profile details -->
+<h1>Due To Some Techinical Issues This Feature Have Bean Locked</h1>
+
+    <!---
     <form id="editProfileForm" action="./functions/update-profile.php" method="post">
        <label for="profile">Profile:</label>
-        <input type="file" name="profile-update" id="">
+        <input type="file" name="profile-update" >
     <label for="newUsername">New Username:</label>
-      <input type="text" id="newUsername" name="newUsername"   required>
+      <input type="text" id="newUsername" name="newUsername"  >
       <label for="newEmail">New Email:</label>
-      <input type="email" id="newEmail" name="newEmail"  required>
+      <input type="email" id="newEmail" name="newEmail" >
       <label for="newPassword">New Password:</label>
-      <input type="password" id="newPassword" name="newPassword" required>
+      <input type="password" id="newPassword" name="newPassword" >
    
     </form>
-    <button type="submit">Save Changes</button>
+
+    <button class="button1" type="submit">Save Changes</button>
+    ---->
   </div>
 </div>
 
